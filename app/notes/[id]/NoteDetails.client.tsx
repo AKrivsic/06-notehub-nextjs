@@ -6,8 +6,8 @@ import { fetchNoteById } from "@/lib/api";
 import css from "./NoteDetails.module.css";
 
 const NoteDetailsClient = () => {
-  const params = useParams();
-  const id = Number(params?.id);
+  const params = useParams() as { id: string };
+  const id = Number(params.id);
 
   const {
     data: note,

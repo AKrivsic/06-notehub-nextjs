@@ -39,22 +39,18 @@ export interface CreateNoteParams {
   content: string;
   tag: 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
 }
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const createNote = async (note: CreateNoteParams): Promise<Note> => {
-  await delay(2000);
   const { data } = await instance.post<Note>('', note);
   return data;
 };
 
 export const deleteNote = async (id: number): Promise<Note> => {
-  await delay(2000);
   const { data } = await instance.delete<Note>(`/${id}`);
   return data;
 };
 
 export const fetchNoteById = async (id: number): Promise<Note> => {
-  await delay(2000);
   const { data } = await instance.get<Note>(`/${id}`);
   return data;
 };
